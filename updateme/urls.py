@@ -10,6 +10,8 @@ urlpatterns=[
     path('registeruser/',views.registeruser,name='registeruser'),
 	path('login/', views.loginpage, name="login"), 
     path('logout/',views.logoutuser,name='logout'),
+    path('new/business/',views.new_business, name='new_business'),
+
 
 
 

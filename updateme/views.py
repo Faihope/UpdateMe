@@ -1,6 +1,6 @@
 from updateme.models import Business, NeighbourHood, User
 from django.shortcuts import render,redirect
-from .forms import CreateUserForm
+from .forms import CreateUserForm,BusinessForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout as dj_login
 from django.urls import reverse
@@ -61,3 +61,18 @@ def loginpage(request):
 def logoutuser(request):
     
     return redirect(reverse('login'))
+
+def new_business(request):
+    current_user = request.user
+
+    if request.method =='POST':
+        form = BusinessForm(request.POST,request.FILES)
+        if form.is_valid():
+            business = form.save(commit=False)
+           
+
+            business.save()
+    else:
+        form = BusinessForm()
+
+    return render(request,'business.html',{"form":form})
