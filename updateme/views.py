@@ -4,3 +4,7 @@ from django.shortcuts import render
 def index(request):
 
     return render(request,'index.html')
+
+def registeruser(request):
+    
+    return render(request,'registration/register.html')
