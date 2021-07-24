@@ -1,3 +1,4 @@
+from updateme.models import Business, NeighbourHood, User
 from django.shortcuts import render,redirect
 from .forms import CreateUserForm
 from django.contrib import messages
@@ -5,8 +6,20 @@ from django.contrib.auth import authenticate,login,logout as dj_login
 from django.urls import reverse
 # Create your views here.
 def index(request):
+    businesses=Business.objects.all()
 
-    return render(request,'index.html')
+    if 'item_name' in request.GET:
+        item_name=request.GET['item_name']
+        businesses=businesses.filter(name__icontains=item_name)
+    else:
+        businesses=Business.objects.all()
+
+    users=User.objects.all()
+    neighbourhoods=NeighbourHood.objects.all()
+
+
+    context={'businesses':businesses,'users':users,'neighbourhoods':neighbourhoods}
+    return render(request,'index.html',context)
 
 def registeruser(request):
     if request.method == 'POST':
