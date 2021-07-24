@@ -1,3 +1,4 @@
+from updateme.views import new_business
 from django.test import TestCase
 from .models import Business,Admin,NeighbourHood,User
 
@@ -10,3 +11,8 @@ class BusinessTestClass(TestCase):
     #Testing Instance
     def test_instance(self):
         self.assertTrue(isinstance(self.business,Business))
+
+    def test_create_business(self):
+        self.business.create_business()
+        bus1=Business.objects.all()
+        self.assertFalse(len(bus1)>0)
