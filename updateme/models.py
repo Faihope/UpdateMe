@@ -12,3 +12,15 @@ class NeighbourHood(models.Model):
 class Admin(models.Model):
     name=models.CharField(max_length=100)
 
+class User(models.Model):
+    name=models.CharField(max_length=100,null=True)
+    id=models.IntegerField(default=0)
+    email=models.EmailField(max_length=50,null=True)
+    neighbourhood=models.ForeignKey(on_delete=CASCADE,null=True)
+
+class Business(models.Model):
+    name=models.CharField(max_length=100)
+    email=models.EmailField(max_length=50,null=True)
+    user=models.ForeignKey(on_delete=CASCADE,null=True)
+    neighbourhood=models.ForeignKey(on_delete=CASCADE,null=True)
+
