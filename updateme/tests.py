@@ -15,4 +15,10 @@ class BusinessTestClass(TestCase):
     def test_create_business(self):
         self.business.create_business()
         bus1=Business.objects.all()
-        self.assertFalse(len(bus1)>0)
+        self.assertIsNotNone(bus1)
+
+    def test_delete_business(self):
+        self.business.create_business()
+        business_record=Business.objects.all()
+        self.business.delete_business()
+        self.assertTrue(len(business_record)==0)
