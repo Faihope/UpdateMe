@@ -22,6 +22,12 @@ class NeighbourHood(models.Model):
     def create_neighbourhood(self):
        pass
 
+    def delete_neighbourhood(self):
+        self.delete()
+
+    def update_neighbourhood(self):
+        pass
+
 
 class User(models.Model):
     name=models.CharField(max_length=100,null=True)
@@ -48,7 +54,7 @@ class Business(models.Model):
         self.delete()
 
     def search_business(self):
-        return self.name
+        pass
 
     def update_business(self):
         pass

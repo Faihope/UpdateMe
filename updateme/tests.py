@@ -17,11 +17,11 @@ class BusinessTestClass(TestCase):
         bus1=Business.objects.all()
         self.assertIsNotNone(bus1)
 
-    # def test_delete_business(self):
-    #     self.business.create_business()
-    #     business_record=Business.objects.all()
-    #     self.business.delete_business()
-    #     self.assertTrue(len(business_record)==0)
+    def test_delete_business(self):
+        self.business.create_business()
+        business_record=Business.objects.all()
+        self.business.delete_business()
+        self.assertTrue(len(business_record)==0)
 
     def test_find_business(self):
         business=Business.objects.all()
@@ -52,3 +52,15 @@ class NeighbourhoodTestClass(TestCase):
         new_neighbourhood=NeighbourHood.create_neighbourhood(self)
         neighbourhood1=f'{new_neighbourhood}'
         self.assertTrue(neighbourhood1,'new_neighbourhood')
+
+    def test_delete_neighbourhood(self):
+        self.neighbourhood.create_neighbourhood()
+        neighbourhood_record=NeighbourHood.objects.all()
+        self.neighbourhood.delete_neighbourhood()
+        self.assertTrue(len(neighbourhood_record)==0)
+
+    def test_update_neighbourhood(self):
+        new_neighbour=NeighbourHood.update_neighbourhood(self)
+        expected_neighbour=f'{new_neighbour}'
+        self.assertTrue(expected_neighbour,'new_neighbour')
+
