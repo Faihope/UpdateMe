@@ -19,6 +19,9 @@ class NeighbourHood(models.Model):
     def __str__(self):
         return self.name
 
+    def create_neighbourhood(self):
+       pass
+
 
 class User(models.Model):
     name=models.CharField(max_length=100,null=True)
@@ -39,7 +42,7 @@ class Business(models.Model):
         return self.name
 
     def create_business(self):
-        return self.name
+        pass
 
     def delete_business(self):
         self.delete()
