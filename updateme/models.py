@@ -43,6 +43,12 @@ class Business(models.Model):
 
     def delete_business(self):
         self.delete()
+
+    def search_business(self):
+        return self.name
+
+    def update_business(self):
+        pass
         
 
   
