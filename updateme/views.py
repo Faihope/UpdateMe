@@ -76,3 +76,8 @@ def new_business(request):
         form = BusinessForm()
 
     return render(request,'business.html',{"form":form})
+
+def profile(request):
+    users=User.objects.all()
+    context={'users':users}
+    return render(request,'profile.html',context)

@@ -1,7 +1,7 @@
 {% extends 'base.html'%}
 
 {% block content%}
-<div class="container mt-4">
+<div class="container-fluid mt-4">
     <div class="row ">
         <div class="col-md-3">
             <div class="card">
@@ -19,37 +19,37 @@
                 </ul>
             </div>
         </div>
+        
+
+        <div class="col-md-9  col-sm-9 col-lg-9">
+            <div class="row">
+
+                {% for business in businesses %}
+                <div class="col-md-3 mr-4">
+                    <div class="card  my-2 mr-4 ml-4" style="width: 300px;">
+                        <div class="card-body">
+
+                            <h5 class="card-title">{{business.neighbourhood.name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">Location:{{business.neighbourhood.location}}</h6>
+                            <p class="card-text">No. of Occupants:{{business.neighbourhood.occupants_count}}</p>
+                            <p class="card-text">Admin:{{business.neighbourhood.admin.name}}</p>
 
 
-        <div class="row">
-
-
-
-            {% for business in businesses %}
-            <div class="col-md-6">
-                <div class="card " style="width: 30rem; ">
-                    <div class="card-body mb-4">
-
-                        <h5 class="card-title">{{business.neighbourhood.name}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Location:{{business.neighbourhood.location}}</h6>
-                        <p class="card-text">No. of Occupants:{{business.neighbourhood.occupants_count}}</p>
-                        <p class="card-text">Admin:{{business.neighbourhood.admin.name}}</p>
-
-
-                        <h1>Business</h1>
-                        <p class="card-text">Name:{{business.name}}</p>
-                        <p class="card-text">Email:{{business.email}}</p>
-                        <p class="card-text">User:{{business.user.name}}</p>
-                        <p class="card-text">Id:{{business.user.id}}</p>
-                        <p class="card-text">Email:{{business.user.email}}</p>
+                            <h1>Business</h1>
+                            <p class="card-text">Name:{{business.name}}</p>
+                            <p class="card-text">Email:{{business.email}}</p>
+                            <!-- <p class="card-text">User:{{business.user.name}}</p>
+                            <p class="card-text">Id:{{business.user.id}}</p>
+                            <p class="card-text">Email:{{business.user.email}}</p> -->
+                        </div>
                     </div>
+
                 </div>
                 {% endfor%}
             </div>
-
-
         </div>
     </div>
 </div>
+
 
 {% endblock %}
