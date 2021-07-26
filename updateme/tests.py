@@ -84,3 +84,12 @@ class userTestClass(TestCase):
         self.user1.delete_user()
         self.assertTrue(len(user_record)==0)
 
+class AdminTestClass(TestCase):
+    #setup method
+    def setUp(self):
+        self.admin=Admin(name='fai')
+
+    #Testing Instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.admin,Admin))
+
