@@ -41,6 +41,9 @@ class User(models.Model):
     def save_user(self):
         self.save()
 
+    def delete_user(self):
+        self.delete()
+
 class Business(models.Model):
     name=models.CharField(max_length=100)
     email=models.EmailField(max_length=50,null=True)
