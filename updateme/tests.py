@@ -98,3 +98,9 @@ class AdminTestClass(TestCase):
         adminf=Admin.objects.all()
         self.assertTrue(len(adminf)>0)
 
+    def test_delete_admin(self):
+        self.admin.save_admin()
+        admin_record=Admin.objects.all()
+        self.admin.delete_admin()
+        self.assertTrue(len(admin_record)==0)
+
