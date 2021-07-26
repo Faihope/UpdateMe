@@ -9,6 +9,10 @@ class Admin(models.Model):
     def __str__(self):
         return self.name
 
+    def save_admin(self):
+        self.save()
+
+
 
 class NeighbourHood(models.Model):
     name=models.CharField(max_length=50,null=False)

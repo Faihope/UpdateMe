@@ -93,3 +93,8 @@ class AdminTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.admin,Admin))
 
+    def test_save_admin(self):
+        self.admin.save_admin()
+        adminf=Admin.objects.all()
+        self.assertTrue(len(adminf)>0)
+
