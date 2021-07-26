@@ -64,3 +64,12 @@ class NeighbourhoodTestClass(TestCase):
         expected_neighbour=f'{new_neighbour}'
         self.assertTrue(expected_neighbour,'new_neighbour')
 
+class userTestClass(TestCase):
+    #setup method
+    def setUp(self):
+        self.user1=User(name='fai',email="fai@gmail.com",id=12)
+
+    #Testing Instance
+    def test_instance(self):
+        self.assertTrue(isinstance(self.user1,User))
+
