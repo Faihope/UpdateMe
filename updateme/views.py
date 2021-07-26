@@ -4,6 +4,8 @@ from .forms import CreateUserForm,BusinessForm
 from django.contrib import messages
 from django.contrib.auth import authenticate,login,logout as dj_login
 from django.urls import reverse
+from django.contrib.auth.decorators import login_required
+
 # Create your views here.
 def index(request):
     businesses=Business.objects.all()
@@ -61,7 +63,7 @@ def loginpage(request):
 def logoutuser(request):
     
     return redirect(reverse('login'))
-
+@login_required(login_url='login')
 def new_business(request):
     current_user = request.user
 
