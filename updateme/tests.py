@@ -73,3 +73,8 @@ class userTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.user1,User))
 
+    def test_save_user(self):
+        self.user1.save_user()
+        userf=User.objects.all()
+        self.assertTrue(len(userf)>0)
+
